@@ -6,8 +6,17 @@
         <ion-title>Blog Item</ion-title>
     </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content *ngIf="post$">
+    <h1>{{ post$.title }}</h1>
     <p>Publié par: {{ user }}</p>
-    {{ post$ | json }}
-    
+    <p>{{ post$.body }}</p>
+    <div *ngFor="let comment of comments">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>{{ comment.name }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>{{ comment.body }}</ion-card-content>
+            <ion-card-subtitle>{{ comment.email }}</ion-card-subtitle>
+        </ion-card>
+    </div>
 </ion-content>

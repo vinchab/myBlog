@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PostsService } from 'src/app/services/posts.service';
 import { Observable } from 'rxjs';
 import { UsersService } from 'src/app/services/users.service';
+import { CommentsService } from 'src/app/services/comments.service';
 
 @Component({
   selector: 'app-post',
@@ -11,13 +12,15 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class PostComponent implements OnInit {
   private _currentId: string
-  private _userId: string
-  public post$: Observable<any>
+  private _userId
+  public post$
   public user: any
+  public comments
 
   constructor(
     private postsService: PostsService,
     private usersService: UsersService,
+    private commentsService: CommentsService,
     private route: ActivatedRoute) { }
 
   async ngOnInit(): Promise<any> {
@@ -26,6 +29,7 @@ export class PostComponent implements OnInit {
     this.post$ = await this.postsService.getPostById(this._currentId)
 
     this.getUserName()
+    this.getComment()
   }
 
   async getUserName(){
@@ -40,4 +44,7 @@ export class PostComponent implements OnInit {
     }
   }
 
+  async getComment(){
+    this.comments = await this.commentsService.getCommentByPost(this._currentId)
+  }
 }
