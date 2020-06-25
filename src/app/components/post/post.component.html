@@ -15,8 +15,10 @@
             <ion-card-header>
                 <ion-card-title>{{ comment.name }}</ion-card-title>
             </ion-card-header>
-            <ion-card-content>{{ comment.body }}</ion-card-content>
-            <ion-card-subtitle>{{ comment.email }}</ion-card-subtitle>
+            <ion-card-content>
+                <p>{{ comment.email }}</p>
+                <p>{{ comment.body }}</p>
+            </ion-card-content>
         </ion-card>
     </div>
 </ion-content>
