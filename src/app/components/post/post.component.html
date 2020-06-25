@@ -3,22 +3,39 @@
         <ion-buttons slot="start">
             <ion-back-button defaultHref="blog"></ion-back-button>
           </ion-buttons>
-        <ion-title>Blog Item</ion-title>
+        <ion-title>Post</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content *ngIf="post$">
-    <h1>{{ post$.title }}</h1>
-    <p>Publié par: {{ currentUser }}</p>
-    <p>{{ post$.body }}</p>
-    <div *ngFor="let comment of comments">
-        <ion-card>
-            <ion-card-header>
-                <ion-card-title>{{ comment.name }}</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-                <p>{{ comment.email }}</p>
-                <p>{{ comment.body }}</p>
-            </ion-card-content>
-        </ion-card>
-    </div>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h1>{{ post$.title }}</h1>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                <p>Publié par: {{ currentUser }}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                <p>{{ post$.body }}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                <h3>Comments</h3>
+            </ion-col>
+          </ion-row>
+    </ion-grid>
+    <ion-card *ngFor="let comment of comments">
+        <ion-card-header>
+            <ion-card-title>{{ comment.name }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p>{{ comment.email }}</p>
+            <p>{{ comment.body }}</p>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
