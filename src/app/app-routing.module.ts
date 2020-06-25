@@ -10,7 +10,6 @@ const routes: Routes = [
     { path: 'blog', component: BlogComponent },
     { path: 'blog/:id', component: PostComponent },
   ]},
-  
   { path: '', redirectTo: 'blog', pathMatch: 'full' }
 ];
 
