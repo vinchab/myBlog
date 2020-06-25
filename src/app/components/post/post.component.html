@@ -1,3 +1,13 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="blog"></ion-back-button>
+          </ion-buttons>
+        <ion-title>Blog Item</ion-title>
+    </ion-toolbar>
+</ion-header>
 <ion-content>
+    <p>Publié par: {{ user }}</p>
     {{ post$ | json }}
+    
 </ion-content>
