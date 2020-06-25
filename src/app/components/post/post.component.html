@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content *ngIf="post$">
     <h1>{{ post$.title }}</h1>
-    <p>Publié par: {{ user }}</p>
+    <p>Publié par: {{ currentUser }}</p>
     <p>{{ post$.body }}</p>
     <div *ngFor="let comment of comments">
         <ion-card>

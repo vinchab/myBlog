@@ -14,7 +14,7 @@ export class PostComponent implements OnInit {
   private _currentId: string
   private _userId
   public post$
-  public user: any
+  public currentUser: any
   public comments
 
   constructor(
@@ -40,7 +40,7 @@ export class PostComponent implements OnInit {
     const user = await this.usersService.getUserById(this._userId)
    
     for (const [key, value] of Object.entries(user)) {
-      if(key === 'name') this.user = value
+      if(key === 'name') this.currentUser = value
     }
   }
 
